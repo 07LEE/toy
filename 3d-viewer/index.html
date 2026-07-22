@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D File Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="header-top">
+                <h1>3D File Viewer</h1>
+            </div>
+            <p>OBJ 또는 PCD 파일을 업로드하여 3D 모델을 시각화하고 제어합니다.</p>
+        </header>
+
+        <!-- App Main Panel -->
+        <main class="app-main">
+            <div class="panel">
+                <!-- Options Bar (Top Settings) -->
+                <div class="options-bar">
+                    <div class="toggle-label-wrapper">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="wireframe-toggle"> 와이어프레임
+                        </label>
+                    </div>
+
+                    <div class="toggle-label-wrapper">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="grid-toggle" checked> 그리드 표시
+                        </label>
+                    </div>
+
+                    <div class="toggle-label-wrapper">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="autorotate-toggle"> 자동 회전
+                        </label>
+                    </div>
+
+                    <div class="root-input-box">
+                        <label for="bg-color">배경</label>
+                        <input type="color" id="bg-color" value="#121212">
+                    </div>
+
+                    <div class="root-input-box" id="point-size-group" style="display: none;">
+                        <label for="point-size">포인트 크기</label>
+                        <input type="range" id="point-size" min="0.001" max="0.05" step="0.001" value="0.005">
+                        <span id="point-size-value">0.005</span>
+                    </div>
+
+                    <div class="spacer" style="flex-grow: 1;"></div>
+
+                    <div id="file-info" style="display: none;">
+                        <span class="file-name"></span>
+                        <button id="clear-file-btn" class="back-btn delete-btn">제거</button>
+                    </div>
+                </div>
+
+                <!-- Canvas and Drag & Drop Area -->
+                <div id="canvas-container">
+                    <!-- Drop Zone Overlay -->
+                    <div id="drop-zone" class="drop-zone">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                        <p class="drop-text">OBJ 또는 PCD 파일을 드래그하여 올리거나 클릭하여 선택하세요</p>
+                        <input type="file" id="file-input" accept=".obj,.pcd" style="display: none;">
+                    </div>
+
+                    <!-- Loading Overlay -->
+                    <div id="loading-overlay" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>파일 로딩 중...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Three.js Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PCDLoader.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

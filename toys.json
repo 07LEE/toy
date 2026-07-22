@@ -12,5 +12,12 @@
         "category": "Web Tool",
         "link": "./pdf-to-image/index.html",
         "description": "PDF 파일을 각 페이지별 고해상도 이미지 파일로 실시간 변환하여 ZIP 압축 파일 다운로드"
+    },
+    {
+        "id": "toy-3d-viewer",
+        "title": "3D File Viewer",
+        "category": "Web Tool",
+        "link": "./3d-viewer/index.html",
+        "description": "OBJ 및 PCD 3D 파일들을 브라우저 내에서 시각화하고 제어"
     }
 ]
